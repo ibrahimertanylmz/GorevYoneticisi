@@ -15,7 +15,7 @@
             android:layout_gravity="center"
             android:clickable="true"
             android:focusable="true"
-            app:cardBackgroundColor="#F812C5"
+            app:cardBackgroundColor="#5F7EBD"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
@@ -30,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="#F812C5"
+                    android:background="#5F7EBD"
                     android:text="TextView"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
@@ -41,10 +41,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="#F812C5"
+                    android:background="#5F7EBD"
                     android:text="TextView"
                     android:textColor="#FFFFFF"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

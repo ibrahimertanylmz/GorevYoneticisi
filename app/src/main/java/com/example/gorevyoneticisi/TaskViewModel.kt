@@ -16,6 +16,8 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
     private var isUpdateOrDelete = false
     private lateinit var taskToUpdateOrDelete : Task
 
+
+
     @Bindable // for this check activity_main.xml and ViewModel.inputName
     val inputName = MutableLiveData<String>()
     @Bindable
@@ -42,9 +44,10 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
             update(taskToUpdateOrDelete)
         }
         else{
-            val name =inputName.value!!
-            val email =inputEmail.value!!
-            insert(Task(0,name,email))
+            val description =inputName.value!!
+            var period = inputEmail.value!!
+            if (period == "") period = "no time limit"
+            insert(Task(0,description,period))
             inputName.value = null
             inputEmail.value = null
         }
