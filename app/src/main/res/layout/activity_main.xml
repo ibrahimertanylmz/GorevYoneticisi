@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -23,7 +24,7 @@
             android:ems="10"
             android:hint="Task Description"
             android:inputType="textPersonName"
-            android:text="@={myViewModel.inputName}"
+            android:text="@={myViewModel.inputDescription}"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -42,7 +43,7 @@
                 android:layout_marginLeft="20dp"
                 android:hint="Set Your Date"
                 android:inputType="textPersonName"
-                android:text="@={myViewModel.inputEmail}"
+                android:text="@={myViewModel.inputPeriod}"
                 android:textSize="14sp"
                 android:layout_marginStart="20dp" />
 
@@ -52,7 +53,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="30"
                 android:text="SET"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:backgroundTint="#254968" />
         </LinearLayout>
 
         <LinearLayout
@@ -64,28 +66,30 @@
                 android:id="@+id/save_or_update_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:onClick="@{()->myViewModel.saveOrUpdate()}"
                 android:text="@={myViewModel.saveOrUpdateButtonText}"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp" />
+                app:backgroundTint="#254968" />
 
             <Button
                 android:id="@+id/clear_all_or_delete_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_weight="1"
                 android:onClick="@{()->myViewModel.clearOrDelete()}"
                 android:text="@={myViewModel.clearAllOrDeleteButtonText}"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginStart="15dp"/>
+                app:backgroundTint="#254968" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

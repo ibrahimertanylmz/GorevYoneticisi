@@ -16,12 +16,10 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
     private var isUpdateOrDelete = false
     private lateinit var taskToUpdateOrDelete : Task
 
-
-
     @Bindable // for this check activity_main.xml and ViewModel.inputName
-    val inputName = MutableLiveData<String>()
+    val inputDescription = MutableLiveData<String>()
     @Bindable
-    val inputEmail = MutableLiveData<String>()
+    val inputPeriod = MutableLiveData<String>()
     @Bindable
     val saveOrUpdateButtonText = MutableLiveData<String>()
     @Bindable
@@ -39,17 +37,17 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
 
     fun saveOrUpdate(){
         if(isUpdateOrDelete){
-            taskToUpdateOrDelete.description = inputName.value!!
-            taskToUpdateOrDelete.period = inputEmail.value!!
+            taskToUpdateOrDelete.description = inputDescription.value!!
+            taskToUpdateOrDelete.period = inputPeriod.value!!
             update(taskToUpdateOrDelete)
         }
         else{
-            val description =inputName.value!!
-            var period = inputEmail.value!!
+            val description =inputDescription.value!!
+            var period = inputPeriod.value!!
             if (period == "") period = "no time limit"
             insert(Task(0,description,period))
-            inputName.value = null
-            inputEmail.value = null
+            inputDescription.value = null
+            inputPeriod.value = null
         }
     }
     fun clearOrDelete(){
@@ -63,7 +61,7 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
     fun insert(task: Task): Job = viewModelScope.launch {
         val newRowId =repository.insert(task)
         if (newRowId>-1){
-            statusMessage.value = Event("Task Inserted Successfully!! $newRowId ")
+            statusMessage.value = Event("Task Inserted Successfully!! ")
         }else{
             statusMessage.value = Event("Error Occurred!!")
         }
@@ -72,8 +70,8 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
     fun update(task: Task): Job = viewModelScope.launch {
         val noOfRows = repository.update(task)
         if(noOfRows>0) {
-            inputName.value = null
-            inputEmail.value = null
+            inputDescription.value = null
+            inputPeriod.value = null
             isUpdateOrDelete = false
             saveOrUpdateButtonText.value = "Save"
             clearAllOrDeleteButtonText.value = "Clear All"
@@ -86,8 +84,8 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
     }
     fun delete(task: Task): Job = viewModelScope.launch {
         repository.delete(task)
-        inputName.value = null
-        inputEmail.value = null
+        inputDescription.value = null
+        inputPeriod.value = null
         isUpdateOrDelete = false
         saveOrUpdateButtonText.value = "Save"
         clearAllOrDeleteButtonText.value = "Clear All"
@@ -95,8 +93,8 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
 
     }
     fun initUpdateAndDelete(task: Task){
-        inputName.value = task.description
-        inputEmail.value = task.period
+        inputDescription.value = task.description
+        inputPeriod.value = task.period
         isUpdateOrDelete = true
         taskToUpdateOrDelete = task
         saveOrUpdateButtonText.value = "Update"
@@ -108,7 +106,6 @@ class TaskViewModel (private val repository: TaskRepository): ViewModel(), Obser
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-
     }
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 
