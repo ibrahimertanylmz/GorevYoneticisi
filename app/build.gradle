@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "com.example.gorevyoneticisi"
         minSdkVersion 16
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -21,12 +21,9 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    //Enable DataBinding
-    dataBinding{
-        enabled = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

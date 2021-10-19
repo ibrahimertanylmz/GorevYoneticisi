@@ -21,7 +21,7 @@ abstract class TaskDatabase : RoomDatabase(){
                     instance= Room.databaseBuilder(
                         context.applicationContext,
                         TaskDatabase::class.java,
-                        "subscriber_data_database").build() }
+                        "task_data_database").build() }
                 return instance
             }
 
