@@ -37,10 +37,12 @@ class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(bindin
     fun bind(task: Task, clickListener: (Task) -> Unit){
         binding.descriptionTextView.text = task.description
         binding.periodTextView.text = task.period
+        if(binding.periodTextView.text != "no time limit") {
         val sdf = SimpleDateFormat("dd.MM.yyyy")
         val strDate = sdf.parse(binding.periodTextView.text.toString() )
         if (Date().after(strDate)) binding.periodTextView.setTextColor(Color.parseColor("#FC3221"))
         if (sdf.format(Date()).equals(sdf.format(strDate))) binding.periodTextView.setTextColor(Color.parseColor("#FFE338"))
+        }
         binding.listItemLayout.setOnClickListener{
             clickListener(task)
         }
