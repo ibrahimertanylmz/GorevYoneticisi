@@ -75,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun listItemClicked(task: Task){
-        Toast.makeText(this,"selected name is ${task.description}",Toast.LENGTH_LONG).show()
         taskViewModel.initUpdateAndDelete(task)
     }
 }

@@ -8,10 +8,12 @@
             name="myViewModel"
             type="com.example.gorevyoneticisi.TaskViewModel" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="15dp"
+        android:background="#FFFFFF"
         android:orientation="vertical"
         tools:context=".MainActivity">
 
@@ -37,20 +39,24 @@
                 android:id="@+id/edt_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginRight="45dp"
                 android:ems="10"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                android:layout_marginLeft="20dp"
                 android:hint="Set Your Date"
                 android:inputType="textPersonName"
                 android:text="@={myViewModel.inputPeriod}"
-                android:textSize="14sp"
-                android:layout_marginStart="20dp" />
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/btn_set_period"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="40dp"
                 android:layout_weight="30"
                 android:text="SET"
                 android:textStyle="bold"

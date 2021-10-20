@@ -24,7 +24,6 @@ abstract class TaskDatabase : RoomDatabase(){
                         "task_data_database").build() }
                 return instance
             }
-
         }
     }
 }
