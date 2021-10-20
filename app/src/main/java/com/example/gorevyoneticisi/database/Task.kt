@@ -12,5 +12,5 @@ data class Task (
     @ColumnInfo(name = "task_description")
     var description: String,
     @ColumnInfo(name = "task_period")
-    var period: String,
+    var period: String
 )
